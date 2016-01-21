@@ -80,7 +80,6 @@ var odds = [];
 
   //Code Here
 var divider = function (nums, evens, odds) {
-  var newArr = [];
   for (var i = 0; i < nums.length; i++){
     if (nums[i] % 2 == 0) {
       evens.push(nums[i]);
@@ -88,7 +87,7 @@ var divider = function (nums, evens, odds) {
     else {
       odds.push(nums[i]);
     }
-    newArr.push(evens, odds);
+    var newArr = evens.concat(odds);
   }
 }
 
@@ -100,8 +99,16 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above you're given a function that will return a random number between 0 and 30, and an array full of numbers. Your job is to write a function named finder that will get a random number, then loop through the array to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-
-
+var finder = function(func, arr) {
+  var ranNum = func();
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === ranNum) {
+      return true;
+    } else {
+        return false;
+      }
+  }
+}
 //Next problem
 
 
@@ -110,7 +117,13 @@ var str = 'this is my sentence';
 //Write a function called reverse that takes a given str as it's only argument and returns that string after it's been reversed
 
   //Code Here
+var reverse = function(string) {
+  var strArr = string.split(' ');
+  strArr.reverse();
+  var revStr = strArr.toString();
+  return revStr.replaceAll(",", " ");
 
+}
 
 //Next Problem
 
@@ -131,9 +144,21 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   //Code Here
 
+var removeItem = function (list, gotIt) {
+  for (var i = 0; i < list.length; i++) {
+    if (list[i] === 'MtnDew') {
+      list = list.splice(i, 1);
+    }
+    return list;
+  }
+}
+
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
+var addItem = function (list, newItem) {
+  return list.push('newItem');
+}
 
 
 //Next Problem
