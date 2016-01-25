@@ -7,7 +7,6 @@ var arr = [10,20,30];
   //Code Here
 var first = function (x) {
 return x[0];
-
 }
 
 //Next problem
@@ -146,8 +145,8 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 var removeItem = function (list, gotIt) {
   for (var i = 0; i < list.length; i++) {
-    if (list[i] === 'MtnDew') {
-      list = list.splice(i, 1);
+    if (gotIt === list[i]) {
+      list.splice(i, 1);
     }
     return list;
   }
@@ -157,7 +156,7 @@ var removeItem = function (list, gotIt) {
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
 var addItem = function (list, newItem) {
-  return list.push('newItem');
+  return list.push(newItem);
 }
 
 
@@ -168,7 +167,12 @@ var addItem = function (list, newItem) {
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
-
+var maker = function () {
+  var numbas = [];
+  for (var i = 0; i < 215; i++) {
+    return numbas.push(i);
+  }
+}
 
 
 //Next Problem
@@ -179,8 +183,28 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
+var addTen = function (arr) {
+  var newArr = arr.split(", ");
+  for (var i = 0; i < newArr.length; i++) {
+    newArr[i] = +newArr[i];
+    for (var i = 0; i < newArr.length; i++) {
+      newArr[i] = newArr[i] +10;
+      newArr.push(newArr[i]);
+    }
+    return newArr;
+  }
+}
 
 
+
+/*
+  for (var i = 0; i < arr.length; i++) {
+    arr[i] = arr[i] +10;
+    newArr.push(arr[i]);
+  }
+  return newArr;
+}
+*/
 
 //Next Problem
 
@@ -200,8 +224,15 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
-
+  /*
+var longer = function (one, two) {
+  if (one.length > two.length) {
+    return one[];
+  }else {
+    return two[];
+  }
+}
+*/
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example)
   'both' should return a new array full of numbers that are found in both arr1 and arr2.
@@ -248,12 +279,21 @@ array with those four objects. After that console.log the length of the Array an
 sure that it's equal to 4. */
 
   //Code Here
+devMountainEmployees.push(tyler);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
 
+console.log(devMountainEmployees.length);
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
-
+for (var i = 0; i < devMountainEmployees.length; i++) {
+  if (devMountainEmployees[i] === cahlan) {
+    devMountainEmployees.splice(i, 1);
+  }
+}
 
 
 
@@ -293,6 +333,7 @@ var data = [
 of Data is to have an Array full of objects. */
 
 //Create an empty array called users.
+var users = [];
 
   //Code Here
 
@@ -308,7 +349,23 @@ var user1 = {
 };
 
 //Your Code Here
+var user2 = {
+  name: 'JT Parker',
+  email: 'jtp311@msn.com',
+  password: 'iLove311',
+  username: 'jtp311'
+}
 
+var user3 = {
+  name: 'Sara Valantine',
+  email: 'sara@sara.com',
+  password: 'iLoveJT',
+  username: 'saraaa',
+}
+
+users.push(user1);
+users.push(user2);
+users.push(user3);
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -318,5 +375,9 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
+for (var key in users) {
+  if (key === 'tylermcginnis33@gmail.com') {
 
+  }
+}
 //The activity we just did is very much how data works in 'the real world'.
